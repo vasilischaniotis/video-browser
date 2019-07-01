@@ -2,6 +2,7 @@
     <div>
         <SearchBar @termChange="onTermChange"></SearchBar>
         <VideoList></VideoList>
+        {{ videos.length }}
     </div>
 </template>
 
@@ -18,7 +19,7 @@ export default {
         VideoList
     },
     data() {
-        return {};
+        return { videos: [] };
     },
     methods: {
         onTermChange(searchTerm) {
@@ -30,7 +31,9 @@ export default {
                     q: searchTerm
                 }
             })
-            .then(response => console.log(response));
+            .then(response => {
+                this.videos = response.data.items
+            });
         }
     }
 };
