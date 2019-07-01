@@ -17,6 +17,9 @@ export default {
         SearchBar,
         VideoList
     },
+    data() {
+        return {};
+    },
     methods: {
         onTermChange(searchTerm) {
             axios.get('https://www.googleapis.com/youtube/v3/search', {
@@ -26,7 +29,8 @@ export default {
                     part: 'snippet',
                     q: searchTerm
                 }
-            }).then(response => console.log(response));
+            })
+            .then(response => console.log(response));
         }
     }
 };
