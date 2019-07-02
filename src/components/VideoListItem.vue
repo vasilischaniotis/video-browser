@@ -11,7 +11,7 @@
 export default {
     name: 'VideoListItem',
     props: {
-        video: Array
+        video: Object
     },
     computed: {
         thumbnailUrl() {
